@@ -15,28 +15,22 @@ class _SideBarState extends State<SideBar> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      backgroundColor: Colors.black.withOpacity(0.3),
+      backgroundColor: Colors.black.withOpacity(0.6),
       child: Stack(
         children: [
           ListView(
             children: [
-             Container(
-
-               height: 200,
-               decoration: BoxDecoration(
-                 color: Colors.red.withOpacity(0.9),
-
-                 gradient: LinearGradient(
-                   begin: Alignment.topLeft,
-                   colors: [
-                     Colors.black.withOpacity(0.6),
-                     Colors.black.withOpacity(0.4),
-                     Colors.black.withOpacity(0.3),
-                     Colors.black.withOpacity(0.2),
-                   ]
-                 )
-               ),
-             ),
+              Container(
+                height: 200,
+                decoration: BoxDecoration(
+                    color: Colors.red.withOpacity(0.9),
+                    gradient: LinearGradient(begin: Alignment.topLeft, colors: [
+                      Colors.black.withOpacity(0.6),
+                      Colors.black.withOpacity(0.4),
+                      Colors.black.withOpacity(0.3),
+                      Colors.black.withOpacity(0.2),
+                    ])),
+              ),
               ListTile(
                 title: Text(
                   "AirPods",
@@ -44,7 +38,10 @@ class _SideBarState extends State<SideBar> {
                     color: Colors.grey.shade500,
                   ),
                 ),
-                trailing: Icon(Icons.arrow_forward_ios,color: Colors.grey,),
+                trailing: Icon(
+                  Icons.arrow_forward_ios,
+                  color: Colors.grey,
+                ),
               ),
               Divider(
                 color: Colors.grey,
@@ -56,11 +53,16 @@ class _SideBarState extends State<SideBar> {
                     color: Colors.grey.shade500,
                   ),
                 ),
-                trailing: Icon(Icons.arrow_forward_ios,color: Colors.grey,),
+                trailing: Icon(
+                  Icons.arrow_forward_ios,
+                  color: Colors.grey,
+                ),
               ),
               Divider(
-                color: Colors.grey,
+                thickness: 1,
+                color: Colors.grey.shade500,
               ),
+
               ListTile(
                 title: Text(
                   "MACbook",
@@ -68,10 +70,13 @@ class _SideBarState extends State<SideBar> {
                     color: Colors.grey.shade500,
                   ),
                 ),
-                trailing: Icon(Icons.arrow_forward_ios,color: Colors.grey,),
+                trailing: Icon(
+                  Icons.arrow_forward_ios,
+                  color: Colors.grey,
+                ),
               ),
               Divider(
-                color: Colors.grey,
+                color: Colors.grey.shade500,
               ),
               ListTile(
                 title: Text(
@@ -80,14 +85,16 @@ class _SideBarState extends State<SideBar> {
                     color: Colors.grey.shade500,
                   ),
                 ),
-                trailing: Icon(Icons.arrow_forward_ios,color: Colors.grey,),
+                trailing: Icon(
+                  Icons.arrow_forward_ios,
+                  color: Colors.grey,
+                ),
               ),
               Divider(
-                color: Colors.grey,
+                thickness: 1
+                ,
+                color: Colors.grey.shade500,
               ),
-
-
-
 
             ],
           )

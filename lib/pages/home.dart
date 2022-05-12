@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:product/pages/rasm.dart';
 import 'package:product/pages/sidebar.dart';
+import 'package:product/pages/widget.dart';
 
 class HomePage extends StatefulWidget {
   static const String id = "home";
@@ -12,17 +13,6 @@ class HomePage extends StatefulWidget {
   @override
   State<HomePage> createState() => _HomePageState();
 }
-
-Icon _fill = Icon(
-  Icons.star,
-  color: Colors.yellow,
-  size: 35,
-);
-Icon _empty = Icon(
-  Icons.star_border,
-  color: Colors.yellow,
-  size: 35,
-);
 
 List list = [
   "assets/images/rasm.jpg",
@@ -38,8 +28,6 @@ List list = [
 int rd = Random().nextInt(9);
 
 class _HomePageState extends State<HomePage> {
-  bool fill = true;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,8 +41,22 @@ class _HomePageState extends State<HomePage> {
                 title: Text("Apple Products"),
                 centerTitle: true,
                 actions: [
-                  SizedBox(
-                    width: 12,
+                  Container(
+                    padding: EdgeInsets.only(
+                      left: 10,
+                      right: 10,
+                    ),
+                    margin: EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(7),
+                      color: Colors.grey.shade700,
+                    ),
+                    child: Center(
+                      child: Text(
+                        "7",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
                   ),
                 ],
                 pinned: true,
@@ -62,7 +64,6 @@ class _HomePageState extends State<HomePage> {
                 backgroundColor: Colors.black,
                 expandedHeight: 350,
                 flexibleSpace: FlexibleSpaceBar(
-                  centerTitle: true,
                   background: Padding(
                     padding: const EdgeInsets.only(
                         top: 80, right: 20, left: 20, bottom: 10),
@@ -118,10 +119,9 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
-
               SliverGrid(
                 delegate: SliverChildBuilderDelegate(
-                      (context, index) {
+                  (context, index) {
                     return Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
@@ -130,25 +130,8 @@ class _HomePageState extends State<HomePage> {
                       ),
 
                       // color: Colors.teal[100 * (index % 9)],
-                      child: Container(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                IconButton(
-                                    onPressed: () {
-                                      setState(() {
-                                        fill = !fill;
-                                      });
-                                    },
-                                    splashColor: Colors.black,
-                                    icon: fill ? _fill : _empty),
-                              ],
-                            )
-                          ],
-                        ),
+                      child: IconPage(
+                        son: index,
                       ),
                     );
                   },
@@ -163,40 +146,8 @@ class _HomePageState extends State<HomePage> {
               )
             ],
           ),
-          Column(
-            children: [
-              SizedBox(
-                height: 40,
-                width: 20,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Container(
-                    padding: EdgeInsets.only(left: 10,right: 10,),
-                    height: 30,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(7),
-                      color: Colors.grey.shade700,
-                    ),
-                    child: Center(
-
-                        child: Text(
-                      "7",
-                      style: TextStyle(color: Colors.white),
-                    )),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                ],
-              ),
-            ],
-          ),
         ],
       ),
     );
   }
 }
-
-
